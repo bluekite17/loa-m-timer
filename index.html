@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+        .cover {
+            width: 700px;
+        }
+
+        .grid-box{
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 30px;
+        }
+
+        .cell{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            border: solid 1px #000034;
+            color: #000034;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        .cell#h11 { transform: translateY(120px) translateX(160px) rotate(45deg); }
+        .cell#h12 { transform: translateX(40px) rotate(45deg); }
+        .cell#h1 { transform: translateY(120px) translateX(-80px) rotate(45deg); }
+        .cell#h9 { transform: translateY(70px) translateX(40px) rotate(45deg); }
+        .cell#h0 { transform: translateY(70px) translateX(40px) rotate(45deg); }
+        .cell#h3 { transform: translateY(70px) translateX(40px) rotate(45deg); }
+        .cell#h7 { transform: translateY(20px) translateX(160px) rotate(45deg); }
+        .cell#h5 { transform: translateY(20px) translateX(-80px) rotate(45deg); }
+        .cell#h6 { transform: translateY(140px) translateX(40px) rotate(45deg); }
+        .cell > div { transform: rotate(-45deg); }
+
+        .btn-box {
+            margin-left: 30px;
+        }
+        #y12, #y6 {
+            margin-right: 10px;
+        }
+    </style>
+
+    <script>
+        function makeColor(alpha) {
+            const baseColorR = 0;
+            const baseColorG = 0;
+            const baseColorB = 52;
+
+            return 'rgba(' + baseColorR + ', ' + baseColorG + ', '
+                + baseColorB + ',' + alpha/100 + ')';
+        }
+
+        function tile_timer(elem) {
+            let respon = elem.attr('respon');
+            elem.children('div').children('span').text(respon + 's');
+            elem.css('background-color', makeColor(respon));
+
+            if(respon <= 40)
+            {
+                elem.css('color', '#000034');
+            }
+            else
+            {
+                elem.css('color', '#FFF');
+            }
+
+            respon -= 1;
+            elem.attr('respon', respon);
+
+            if(respon === 0)
+            {
+                clearInterval(elem.attr('timer'));
+                elem.css('background-color', makeColor(respon));
+                elem.children('div').children('span').text('');
+                elem.attr('respon', undefined);
+            }
+        }
+
+        $( document ).ready(function() {
+            $('.cell').click(function() {
+                const thisElem = $(this);
+                console.log(thisElem);
+                if(thisElem.attr('respon') !== undefined)
+                {
+                    return;
+                }
+
+                console.log('click', thisElem.attr('id'));
+
+                thisElem.attr('respon', 100);
+                tile_timer(thisElem);
+                thisElem.attr('timer', setInterval(tile_timer, 1000, thisElem));
+            })
+
+            $('#y12').click(function() {
+                $('#h11').click();
+                $('#h12').click();
+                $('#h1').click();
+            });
+
+            $('#y6').click(function() {
+                $('#h6').click();
+                $('#h7').click();
+                $('#h5').click();
+            })
+
+            $('#reset').click(function(){
+                location.reload();
+            })
+        });
+    </script>
+</head>
+<body>
+<div class="cover">
+    <div class="row mt-3 btn-box">
+        <button type="button" class="btn btn-warning" id="y12">12 노메</button>
+        <button type="button" class="btn btn-warning" id="y6">6 노메</button>
+        <button type="button" class="btn btn-success" id="reset">초기화</button>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="grid-box">
+                <div class="cell" id="h11">
+                    <div>11<br><span></span></div>
+                </div>
+                <div class="cell" id="h12">
+                    <div>12<br><span></span></div>
+                </div>
+                <div class="cell" id="h1">
+                    <div>1<br><span></span></div>
+                </div>
+                <div class="cell" id="h9">
+                    <div>9<br><span></span></div>
+                </div>
+                <div class="cell" id="h0">
+                    <div>0<br><span></span></div>
+                </div>
+                <div class="cell" id="h3">
+                    <div>3<br><span></span></div>
+                </div>
+                <div class="cell" id="h7">
+                    <div>7<br><span></span></div>
+                </div>
+                <div class="cell" id="h6">
+                    <div>6<br><span></span></div>
+                </div>
+                <div class="cell" id="h5">
+                    <div>5<br><span></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
