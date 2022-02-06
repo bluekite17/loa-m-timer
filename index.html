@@ -9,6 +9,8 @@
 
 
     <style>
+        body {background-color: #000034}
+
         .cover {
             width: 700px;
         }
@@ -26,7 +28,8 @@
             justify-content: center;
             width: 150px;
             height: 150px;
-            border: solid 1px #000034;
+            border: solid 1px #FFF;
+            background-color: #FFF;
             color: #000034;
         }
 
@@ -55,17 +58,17 @@
 
     <script>
         function makeColor(alpha) {
-            const baseColorR = 0;
-            const baseColorG = 0;
-            const baseColorB = 52;
+            const baseColorR = 255;
+            const baseColorG = 255;
+            const baseColorB = 255;
 
             return 'rgba(' + baseColorR + ', ' + baseColorG + ', '
-                + baseColorB + ',' + alpha/100 + ')';
+                + baseColorB + ',' + (100-alpha)/100 + ')';
         }
 
         function tile_timer(elem) {
             let respon = elem.attr('respon');
-            elem.children('div').children('span').text(respon + 's');
+            elem.children('div').children('h2').text(respon + 's');
             elem.css('background-color', makeColor(respon));
 
             if(respon <= 40)
@@ -84,7 +87,7 @@
             {
                 clearInterval(elem.attr('timer'));
                 elem.css('background-color', makeColor(respon));
-                elem.children('div').children('span').text('');
+                elem.children('div').children('h2').text('');
                 elem.attr('respon', undefined);
             }
         }
@@ -134,31 +137,58 @@
         <div class="col-12">
             <div class="grid-box">
                 <div class="cell" id="h11">
-                    <div>11<br><span></span></div>
+                    <div>
+                        <h5>11</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h12">
-                    <div>12<br><span></span></div>
+                    <div>
+                        <h5>12</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h1">
-                    <div>1<br><span></span></div>
+                    <div>
+                        <h5>1</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h9">
-                    <div>9<br><span></span></div>
+                    <div>
+                        <h5>9</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h0">
-                    <div>0<br><span></span></div>
+                    <div>
+                        <h5>0</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h3">
-                    <div>3<br><span></span></div>
+                    <div>
+                        <h5>3</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h7">
-                    <div>7<br><span></span></div>
+                    <div>
+                        <h5>7</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h6">
-                    <div>6<br><span></span></div>
+                    <div>
+                        <h5>6</h5>
+                        <h2></h2>
+                    </div>
                 </div>
                 <div class="cell" id="h5">
-                    <div>5<br><span></span></div>
+                    <div>
+                        <h5>11</h5>
+                        <h2></h2>
+                    </div>
                 </div>
             </div>
         </div>
