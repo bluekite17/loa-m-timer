@@ -55,15 +55,9 @@
         #y12, #y6 {
             margin-right: 10px;
         }
-
-        .gimmick-info {
-            margin-top: -30px;
-            margin-bottom: -200px
-        }
-
         @media (max-width: 600px) {
             .cover {
-                width: 350px;
+                width: 350px; margin-left: auto; margin-right: auto;
             }
 
             .grid-box{
@@ -100,16 +94,11 @@
             .cell > div { transform: rotate(-45deg); }
 
             .btn-box {
-                margin-left: 15px;
+                 display: table; margin-left: auto; margin-right: auto;
             }
 
             #y12, #y6 {
                 margin-right: 5px;
-            }
-
-            .gimmick-info {
-                margin-top: 0;
-                margin-bottom: 0
             }
         }
     </style>
@@ -186,15 +175,9 @@
 </head>
 <body>
 <div class="cover">
-    <div class="text-right gimmick-info">
-        212 - 문양<br/>
-        <span class="text-warning">187 - 노메</span><br/>
-        <span class="text-warning">137 - 노메</span><br/>
-        112 - 찬미<br/>
-        <span class="text-warning">87 - 노메</span><br/>
-        <span class="text-warning">37 - 노메</span><br/>
-        32 - 2문양<br/>
-        28 - 추락하라<br/>
+    <div class="gimmick-info">
+        212(문양) - <span class="text-warning">187(노메)</span> - <span class="text-warning">137(노메)</span> - 112(찬미) - <span class="text-warning">87(노메)</span> - <span class="text-warning">37(노메)</span> - 32(2문양)
+        - 28(추락하라)<br/>
     </div>
     <div class="row mt-3 btn-box">
         <button type="button" class="btn btn-warning" id="y12">12 노메</button>
