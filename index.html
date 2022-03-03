@@ -55,6 +55,63 @@
         #y12, #y6 {
             margin-right: 10px;
         }
+
+        .gimmick-info {
+            margin-top: -30px;
+            margin-bottom: -200px
+        }
+
+        @media (max-width: 600px) {
+            .cover {
+                width: 350px;
+            }
+
+            .grid-box{
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+                margin-top: 15px;
+            }
+
+            .cell{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 75px;
+                height: 75px;
+                border: solid 1px #FFF;
+                background-color: #FFF;
+                color: #000034;
+            }
+
+            div {
+                text-align: center;
+            }
+
+            .cell#h11 { transform: translateY(60px) translateX(80px) rotate(45deg); }
+            .cell#h12 { transform: translateX(20px) rotate(45deg); }
+            .cell#h1 { transform: translateY(60px) translateX(-40px) rotate(45deg); }
+            .cell#h9 { transform: translateY(35px) translateX(20px) rotate(45deg); }
+            .cell#h0 { transform: translateY(35px) translateX(20px) rotate(45deg); }
+            .cell#h3 { transform: translateY(35px) translateX(20px) rotate(45deg); }
+            .cell#h7 { transform: translateY(10px) translateX(80px) rotate(45deg); }
+            .cell#h5 { transform: translateY(10px) translateX(-40px) rotate(45deg); }
+            .cell#h6 { transform: translateY(70px) translateX(20px) rotate(45deg); }
+            .cell > div { transform: rotate(-45deg); }
+
+            .btn-box {
+                margin-left: 15px;
+            }
+
+            #y12, #y6 {
+                margin-right: 5px;
+            }
+
+            .gimmick-info {
+                margin-top: 0;
+                margin-bottom: 0
+            }
+        }
     </style>
 
     <script>
@@ -129,22 +186,20 @@
 </head>
 <body>
 <div class="cover">
+    <div class="text-right gimmick-info">
+        212 - 문양<br/>
+        <span class="text-warning">187 - 노메</span><br/>
+        <span class="text-warning">137 - 노메</span><br/>
+        112 - 찬미<br/>
+        <span class="text-warning">87 - 노메</span><br/>
+        <span class="text-warning">37 - 노메</span><br/>
+        32 - 2문양<br/>
+        28 - 추락하라<br/>
+    </div>
     <div class="row mt-3 btn-box">
         <button type="button" class="btn btn-warning" id="y12">12 노메</button>
         <button type="button" class="btn btn-warning" id="y6">6 노메</button>
         <button type="button" class="btn btn-success" id="reset">초기화</button>
-    </div>
-    <div class="text-right" style="margin-top: -30px; margin-bottom: -200px;">
-        222 - 몽환 혼란<br/>
-        212 - 몽환 세계<br/>
-        <span class="text-warning">187 - 노란 메테오</span><br/>
-        <span class="text-warning">137 - 노란 메테오</span><br/>
-        112 - 찬미<br/>
-        <span class="text-warning">87 - 노란 메테오</span><br/>
-        62 - 몽환 혼란<br/>
-        <span class="text-warning">37 - 노란 메테오</span><br/>
-        32 - 몽환 세계<br/>
-        28 - 추락하라<br/>
     </div>
     <div class="row mt-3">
         <div class="col-12">
