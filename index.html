@@ -130,7 +130,7 @@
             respon -= 1;
             if(respon === 0)
             {
-                elem.attr('respon', undefined);
+                elem.removeAttr('respon');
                 clearInterval(elem.attr('timer'));
                 elem.css('background-color', makeColor(respon));
                 elem.children('div').children('h2').text('');
